@@ -1,0 +1,40 @@
+@mixin template-top{
+    border: thin black solid;
+    border-radius: 2%;
+    background-color: lightgray
+}
+
+@mixin template-bottom{
+    border: thin black solid;
+    border-radius: 2%;
+    background-color: white
+}
+
+@mixin base-frame{
+    border-radius: 0 0 1% 1%;
+    border: 4px solid #712e1e ;
+  }
+
+  @mixin placehold {
+    background-color: lightgrey;
+    border: 1px solid black;
+}
+
+@mixin placehold-top {
+    margin: 0 10px;
+        //using width overrides this setting or maybe it prioritizes what comes last?
+    background-color: white;
+    border: 1px solid black;
+}
+
+@mixin placeholder-content {
+    background-color: darkgray;
+    border: 1px solid black;
+}
+
+@mixin background-base {
+    background-color: #712e1e;
+}
+
+
+  

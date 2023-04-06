@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="productpage.css">
+    </head>
+    <body>
+        <div class="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><button class="toggle-cart">Cart</button></li>
+            </ul>
+            <div class="cart-count">
+                <p></p>
+            </div>
+        </div>
+        <section class="cart hide">
+            <strong>CART</strong>
+            <div class="cart-items">
+            </div>
+            <div class="cart-total">
+                    <strong class="cart-total-title">Total</strong>
+                    <span class="cart-total-price">$0</span>
+            </div>
+                <button class="btn btn-primary btn-purchase" style="display: none">Go To Checkout</button>
+        </section>
+        <div class="product-wrapper">
+            <div class="product">
+                <div class="product-image"><img src="Images\peppermintparadise.png" width="600px" alt="Peppermint"></div>
+                <div class="go-to-cart"><a href="Cart.html"><button class="btn-to-cart">Go to Menu</button></a></div>
+            </div>
+            <div class="product-description">
+                <h1>Amazing Zesty Flavor</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus quibusdam temporibus fugiat nemo quas? Autem unde reprehenderit sunt. Id laborum modi adipisci mollitia explicabo quisquam iure temporibus error, animi saepe!</p>
+            </div>
+        </div>
+        <div class="footer">
+            <p>Phone: 123-456-789</p>
+            <p>Address: XXXXX Coffee Way Drive</p>
+            <p>Follow us on Social Media!!</p>
+            <a href=""><img src="Images\f-ogo_RGB_HEX-58.png" alt="facebook page"></a>
+            <a href=""><img src="Images\glyph-logo_May2016-150x150.png" alt="instagram page"></a>
+            <a href=""><img src="Images\Twitter_Logo_Blue-150x150.png" alt="Twitter"></a>
+            <div><button id="back-to-top" >Back to Top</button></div>
+         </div>
+        <script src="persistentCart.js" async defer></script>
+    </body>
+</html>

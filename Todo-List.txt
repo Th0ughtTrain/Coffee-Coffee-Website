@@ -1,0 +1,23 @@
+Todo 
+    - Style the buttons
+    - Connect all of the pages
+    - Add in media queries for different screen sizes
+    - Make nav bar functional
+    - Change lemon blend to something else
+    - add a credits page
+    - make cart persistent across the various pages
+    - add a checkout page 
+    - finish rewards card (photoshop is having some problems)
+    - improve website design. 
+    - make website responsive
+
+Considering
+    - having the number of cart items showing next to the cart
+         and remaining persistant. 
+
+Done 
+    - adding the purchase button after you press add to cart.
+    - Reset total after making purchase
+
+
+

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="Cart.css">
+    </head>
+    <body>
+        <div class="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="">Menu</a></li>
+                <li><button class="toggle-cart">Cart</button></li>
+            </ul>
+            <div class="cart-count">
+                <p></p>
+            </div>
+        </div>
+        <section class="cart hide">
+            <strong>CART</strong>
+            <div class="cart-items">
+            </div>
+            <div class="cart-total">
+                    <strong class="cart-total-title">Total</strong>
+                    <span class="cart-total-price">$0</span>
+            </div>
+                <button class="btn btn-primary btn-purchase" style="display: none">Go To Checkout</button>
+        </section>
+        <div class="wrapper" style="display: flex">
+                <h1>MENU</h1> 
+                <div class="top-row">
+                    <div id="product" class="product-item">
+                        <div class="shop-item-title">Lemon Blend</div>
+                        <div class="product-info" >
+                            <img class="shop-item-image" src="Images\Coffeepurepng.png" 
+                            alt="coffee blend" width="300px" >
+                        </div>
+                        <div class="purchasing-details">
+                            <p class="shop-item-price">$4.50</p>
+                            <!-- <a href="Product1Page.html"> --><button class="shop-item-details">Learn More!</button></a>
+                            <button class="shop-item-button" id="add-to-cart" type="submit">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div id="product-2" class="product-item">
+                        <div class="shop-item-title">Peppermint</div>
+                        <div class="product-info">
+                            <img class="shop-item-image" src="Images\peppermintparadise.png" 
+                            alt="coffee blend" width="300px">
+                        </div>
+                        <div class="purchasing-details">
+                            <p class="shop-item-price">$4.50</p>
+                            <a href="Product2Page.html"><button class="shop-item-details">Learn More!</button></a>
+                            <button class="shop-item-button" id="add-to-cart-2" type="submit">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-row">
+                    <div id="product-3" class="product-item">
+                        <div class="shop-item-title">Hibiscus Gold</div>
+                        <div class="product-info" >
+                            <img class="shop-item-image" src="Images\hibiscusgold.png" 
+                            alt="coffee blend" width="300px">
+                        </div>
+                        <div class="purchasing-details">
+                            <p class="shop-item-price">$4.50</p>
+                            <a href="Product3Page.html"><button class="shop-item-details">Learn More!</button></a>
+                            <button class="shop-item-button" id="add-to-cart" type="submit">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div id="product-4" class="product-item">
+                        <div class="shop-item-title">Cinnamon Walnut</div>
+                        <div class="product-info" >
+                            <img class="shop-item-image" src="Images\cinnamonwalnut.png" 
+                            alt="coffee blend" width="300px">
+                        </div>
+                        <div class="purchasing-details">
+                            <p class="shop-item-price">$4.50</p>
+                            <a href="Product4Page.html"><button class="shop-item-details">Learn More!</button></a>
+                            <button class="shop-item-button" id="add-to-cart-2" type="submit">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <!-- <section class="cart">
+                    <strong>CART</strong>
+                    <div class="cart-items">
+                    </div>
+                    <div class="cart-total">
+                            <strong class="cart-total-title">Total</strong>
+                            <span class="cart-total-price">$0</span>
+                    </div>
+                        <button class="btn btn-primary btn-purchase" style="display: none">Purchase</button>
+                </section> -->
+        </div>
+        <div class="footer">
+                <p>Phone: 123-456-789</p>
+                <p>Address: XXXXX Coffee Way Drive</p>
+                <p>Follow us on Social Media!!</p>
+                <a href=""><img src="Images\f-ogo_RGB_HEX-58.png" alt="facebook page"></a>
+                <a href=""><img src="Images\glyph-logo_May2016-150x150.png" alt="instagram page"></a>
+                <a href=""><img src="Images\Twitter_Logo_Blue-150x150.png" alt="Twitter"></a>
+                <div><button id="back-to-top" >Back to Top</button></div>
+        </div>
+        <script src="CartFunction.js" async defer></script>
+    </body>
+</html>
