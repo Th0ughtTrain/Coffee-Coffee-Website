@@ -211,7 +211,8 @@ function addItemToCart(title,price,imageSrc,place) {
     cartRow.style.margin = "10px auto"
     cartRow.style.width = `100%`
     document.getElementsByClassName(`btn-purchase`)[0].style.display = 'block'
-    cart.classList.remove('hide')
+    // just to remember that this is apart of the original function
+    // cart.classList.remove('hide')
 };
 
 persistCart()
