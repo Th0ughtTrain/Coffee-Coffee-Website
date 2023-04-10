@@ -278,6 +278,28 @@ function displayCartCount() {
         count.style.justifyContent = 'center'
         number.classList.add(`count-integer`)
         number.textContent = localStorage.length
-        
     }
 }
+
+function cartCheckout() {
+    for (let i = 0; i < document.getElementsByClassName(`cart-item`).length; i++  ) {
+        diagnostics(i);
+        var title = document.getElementsByClassName(`cart-item-title`)[i].textContent;
+        var priceElement = document.getElementsByClassName('cart-price')[1].textContent;
+        var quantityElement = document.getElementsByClassName('cart-quantity-input')[1].value;
+        let checkoutOBJ = {title: title, price: priceElement, quantity: quantityElement};
+        console.log(checkoutOBJ);
+        checkoutStore = JSON.stringify(checkoutOBJ)
+        sessionStorage.setItem(`checkout${i}`, checkoutStore)
+        console.log(sessionStorage)
+    }
+    
+}
+
+function diagnostics(index) {
+    console.log(document.getElementsByClassName(`cart-item-title`)[index].textContent)
+        console.log(document.getElementsByClassName(`cart-price`)[index].textContent)
+        console.log(document.getElementsByClassName(`cart-quantity-input`)[index].value)
+}
+
+cartCheckout()

@@ -1,0 +1,96 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="checkout.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><button class="toggle-cart">Cart</button></li>
+            </ul>
+            <div class="cart-count">
+                <p></p>
+            </div>
+            <section class="cart hide">
+                <strong>CART</strong>
+                <div class="cart-items">
+                </div>
+                <div class="cart-total">
+                        <strong class="cart-total-title">Total</strong>
+                        <span class="cart-total-price">$0</span>
+                </div>
+                    <button class="btn btn-primary btn-purchase" style="display: none">Go To Checkout</button>
+            </section>
+        </div>
+        <h1>Checkout</h1>
+        <div class="checkout-wrapper">
+            <div class="checkout-container">
+                <form class='name-field'>
+                    <label for="first-name">First Name</label>
+                    <input type="text" name="first-name" id="first-name" class="text-field">
+                    <label for="first-name">Last Name</label>
+                    <input type="text" name="last-name" id="last-name" class="text-field">
+                </form>
+                <form class="location-field">
+                    <label for="country">Country/Region</label>
+                    <input type="text" name="country" id="country" class="text-field">
+                    <br>
+                    <label for="street-name">Street address</label>
+                    <input type="text" name="street-name" id="street-name" class="text-field">
+                    <br>
+                    <label for="apt">Apartment/Suite/Unit/etc..</label>
+                    <input type="text" name="apt" id="apt" class="text-field optional">
+                    <br>
+                    <label for="city" class="text-field">City</label>
+                    <input type="text" name="city" id="city" class="text-field">
+                    <br>
+                    <label for="state" class="text-field variable">State</label>
+                    <input type="text" name="state" id="last-name" class="text-field">
+                    <label for="zip-code">Zip Code</label>
+                    <input type="text" name="zip-code" id="zip-code" class="text-field">
+                </form>
+                <form class="email-field">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email" class="text-field">
+                </form>
+                
+            </div>
+            <div class="purchase-recap">
+                <form>
+                    <!-- 
+                        <div class="items">
+                            items will dynamically populate here
+                            dynamically generate total
+                        </div>
+                        items, quantity, prices, shipping 
+                    -->
+                    <label for="card-number">Card Number</label>
+                    <input type="text" name="card-number" id="card-number" class="text-field">
+                    <br>
+                    <label for="expiration">Expiration Date(mm/dd/yyyy)</label>
+                    <input type="date" name="expiration">
+                    <label for="card-code">Card Code</label>
+                    <input type="text" name="card-code" id="card-code" class="text-field">
+                </form>
+            </div>
+        </div>
+        <div class="footer">
+            <p>Phone: 123-456-789</p>
+            <p>Address: XXXXX Coffee Way Drive</p>
+            <p>Follow us on Social Media!!</p>
+            <a href=""><img src="Images\f-ogo_RGB_HEX-58.png" alt="facebook page"></a>
+            <a href=""><img src="Images\glyph-logo_May2016-150x150.png" alt="instagram page"></a>
+            <a href=""><img src="Images\Twitter_Logo_Blue-150x150.png" alt="Twitter"></a>
+            <div><button id="back-to-top" >Back to Top</button></div>
+        </div>
+    </div>
+    <script src="checkout.js" async defer></script>
+</body>

@@ -11,6 +11,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="about.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto">
     </head>
     <body>
         <div class="wrapper">
@@ -18,16 +19,30 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="Cart.html">Menu</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><button class="toggle-cart">Cart</button></li>
                 </ul>
+                <div class="cart-count">
+                    <p></p>
+                </div>
+                <section class="cart hide">
+                    <strong>CART</strong>
+                    <div class="cart-items">
+                    </div>
+                    <div class="cart-total">
+                            <strong class="cart-total-title">Total</strong>
+                            <span class="cart-total-price">$0</span>
+                    </div>
+                        <button class="btn btn-primary btn-purchase" style="display: none">Go To Checkout</button>
+                </section>
             </div>
             <h1>About Us</h1>
             <div class="about-wrapper">
                 <div class="about-container">
                     <div class="about-img">
                         <div class="img-container">   
-                            <img src="Images\pexels-photo-8936819.jpeg" width="640" alt="image of brewmaster">
-                            <img src="Images\pexels-ketut-subiyanto-4354193.jpg" width="640" alt="a trio of baristas">
+                            <img src="Images\pexels-photo-8936819.jpeg" width="440" alt="image of brewmaster">
+                            <img src="Images\pexels-ketut-subiyanto-4354193.jpg" width="440" alt="a trio of baristas">
                         </div>
                     </div>
                     <div class="about-description">
@@ -47,6 +62,6 @@
                 <div><button id="back-to-top" >Back to Top</button></div>
             </div>
         </div>
-        <script src="" async defer></script>
+        <script src="persistentCart.js" async defer></script>
     </body>
 </html>
