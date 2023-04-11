@@ -77,6 +77,7 @@ function persistCart() {
     }
 
     displayCartCount()
+    updateCartTotal()
 }
 
 function removeCartItem(e) {
@@ -227,10 +228,10 @@ function checkoutItems(title,price,quantity) {
     // var checkoutItemQuantity = document.createElement('p')
     // checkoutItemQuantity.classList.add('checkout-item-quantity')
     // checkoutItemQuantity.textContent = quantity
-    // // var cartTotal =  document.getElementsByClassName('cart-total-price')[0].textContent
-    // // var checkoutTotal = document.createElement('div')
-    // // checkoutTotal.classList.add('checkout-total')
-    // // checkoutTotal.textContent = cartTotal
+    // var cartTotal =  document.getElementsByClassName('cart-total-price')[0].textContent
+    // var checkoutTotal = document.createElement('div')
+    // checkoutTotal.classList.add('checkout-total')
+    // checkoutTotal.textContent = cartTotal
     checkoutItem.textContent = `${title} ${price} x ${quantity}`
     document.getElementsByClassName('purchase-recap')[0].append(checkoutItem)
     // checkoutItem.append(checkoutItemTitle)
@@ -240,7 +241,7 @@ function checkoutItems(title,price,quantity) {
 }
 
 function retriveFromSessionStorage() {
-    for (let i = 0; i < sessionStorage.length; i++) {
+    for (let i = 0; i < sessionStorage.length - 1; i++) {
         let sessionObj = sessionStorage.getItem(`checkout${i}`)
         let retrievedObj = JSON.parse(sessionObj);
         console.log(retrievedObj)
@@ -249,8 +250,79 @@ function retriveFromSessionStorage() {
         quantity = retrievedObj.quantity;   
         checkoutItems(title,price,quantity) 
     }
+
+    let sessionTotal = sessionStorage.getItem(`total`)
+    let retrievedTotal = JSON.parse(sessionTotal);
+    let checkoutTotal = document.createElement(`div`)
+    checkoutTotal.classList.add('checkout-total')
+    checkoutTotal.textContent = `Total: ${retrievedTotal}`
+    document.getElementsByClassName('purchase-recap')[0].append(checkoutTotal)
 }
+
+function textContentCompleted() {
+    for (let i = 0; i < document.getElementsByClassName('text-field billing').length; i++) {
+        if (document.getElementsByClassName('text-field billing')[i].value !== "" ) {
+            console.log (true)
+        } else {
+            document.getElementsByClassName('text-field billing')[i].style.backgroundColor = 'red'
+            document.getElementsByClassName('text-field billing')[i].scrollIntoView({behavior: 'smooth'});
+            return
+        }
+    }
+    
+    let creditCardCodes = /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/
+
+    // if (creditCardCodes.test(document.getElementsByClassName('payment')[0].value) == false) {
+    //     document.getElementsByClassName('payment')[0].style.backgroundColor = 'red'
+    //     document.getElementsByClassName('payment')[0].scrollIntoView({behavior: 'smooth'});
+    //     return
+    // }
+    
+    
+    let date = new Date(document.getElementsByClassName('expiration')[1].value, document.getElementsByClassName('expiration')[0].value)
+    let currentDate = new Date()
+
+    if (date.getMonth() < currentDate.getMonth() && date.getFullYear() <= currentDate.getFullYear() || date.getFullYear() < currentDate.getFullYear()) {
+        document.getElementsByClassName('expiration')[0].style.backgroundColor = 'red'
+        document.getElementsByClassName('expiration')[1].style.backgroundColor = 'red'
+        document.getElementsByClassName('expiration')[0].scrollIntoView({behavior: 'smooth'});
+        alert("this date is not valid")
+        return
+
+    } else {
+        alert('Thank you for you purchase');
+        localStorage.clear()
+        sessionStorage.clear()
+        retriveFromSessionStorage()
+        persistCart()
+        window.location.href = 'index.html'
+    }
+}
+
+
+function checkoutPurchase() {
+    console.log(document.getElementsByClassName('text-field billing')[0].value)
+    textContentCompleted()
+}
+
+document.getElementsByClassName(`checkout-btn-purchase`)[0].addEventListener('click' , checkoutPurchase)
 
 persistCart()
 showCart()
 retriveFromSessionStorage()
+
+for (let i = 0; i <  document.getElementsByClassName('text-field billing').length; i++) {
+    document.getElementsByClassName('text-field billing')[i].addEventListener('input', (e) => {
+        if (e.target.style.backgroundColor == 'red') {
+            e.target.style.backgroundColor = `white`
+        }
+    })
+    
+    for (let i = 0; i <  document.getElementsByClassName('payment').length; i++) {
+        document.getElementsByClassName('payment')[i].addEventListener('input', (e) => {
+            if (e.target.style.backgroundColor == 'red') {
+                e.target.style.backgroundColor = `white`
+            }
+        })
+    }
+} 

@@ -156,18 +156,71 @@ button {
 
 .checkout-wrapper {
     display: flex;
-    width: 1300px;
-    height: 900px;
+    flex-direction: column;
+    
+    width: 1000px;
+    height: 1200px;
     background-color: whitesmoke;
+    box-shadow: 0px 0px 10px 0px;
+    border: 10px solid #888870;
+    margin: 10px auto;
 
     .checkout-container {
       width: 700px;
+      margin: 50px 40px;
     }
 
     .text-field {
       height: 30px;
-      width: 200px;
+      width: 400px;
+      display: block;
+    }
+
+    .text-field-optional {
+      height: 30px;
+      width: 400px;
+      display: block;
+    }
+
+    .purchase-recap {
+      background-color: lightgray;
+    
       
+      *{
+        margin: 10px 40px;
+        
+      }
+
+      h2{
+        border-bottom: 2px solid rgb(184, 184, 184)
+      }
+
+      .checkout-total {
+        border-top: 2px solid rgb(184, 184, 184);
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+    }
+
+    .payment-info{ 
+      margin: 20px 40px;
+
+      *{
+        margin: 2px;
+      }
+
+      .expiration {
+        width: 50px;
+        text-align: center;
+      }
+
+      .checkout-btn-purchase {
+        height: 50px;
+        width: 100px;
+        background-color: #712e1e;
+        color: white;
+        border-radius: 10px;
+      }
     }
 }
 

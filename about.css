@@ -1,11 +1,11 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "Roboto";
 }
 
 body {
-  font-family: "Roboto";
-  height: 1500px;
+  height: 1200px;
   width: 100%;
   background-image: url("Images\\pexels-fwstudio-129731.jpg");
 }
@@ -62,7 +62,7 @@ body .wrapper h1 {
 }
 
 .toggle-cart.active, .toggle-cart:hover {
-  background: #1b9bff;
+  background: #baba8d;
   transition: 0.5s;
 }
 
@@ -110,9 +110,6 @@ body .wrapper h1 {
 .cart .cart-row .cart-item .cart-item-title {
   text-align: center;
 }
-.cart button {
-  width: 100px;
-}
 
 .cart-quantity {
   display: flex;
@@ -143,12 +140,12 @@ body .wrapper h1 {
 }
 .about-wrapper .about-container {
   border: 10px solid #888870;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
   display: flex;
   width: 1360px;
   height: 654px;
-  background-color: whitesmoke;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px 0px black;
 }
 .about-wrapper .about-container .about-img {
   width: 50%;
@@ -174,7 +171,7 @@ body .wrapper h1 {
 
 .footer {
   background-color: #712e1e;
-  height: 160px;
+  height: 170px;
   width: 100%;
   text-align: center;
 }

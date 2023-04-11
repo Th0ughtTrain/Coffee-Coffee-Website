@@ -79,12 +79,12 @@ body {
 
 .product {
   border: 10px solid #888870;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
   display: flex;
   width: 1360px;
   height: 654px;
-  background-color: whitesmoke;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px 0px black;
 }
 
 .product-interface {
@@ -177,9 +177,6 @@ body {
 }
 .cart .cart-row .cart-item .cart-item-title {
   text-align: center;
-}
-.cart button {
-  width: 100px;
 }
 
 .cart-quantity {

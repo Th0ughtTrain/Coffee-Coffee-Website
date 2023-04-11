@@ -7,38 +7,10 @@
 
 body{
     height: 1500px;
-    width: 100%; 
-
-    .nav {
-    background-color: #712e1e;
-    height: 60px;
     width: 100%;
-    }
+    background-image: url("Images\\pexels-fwstudio-129731.jpg"); 
 
-    .nav ul {
-    float: right;
-    margin-right: 150px;
-    }
-
-    .nav ul li {
-    display: inline-block;
-    line-height: 80px;
-    margin: 0 5px;
-    }
-
-    .nav ul li a {
-    color: white;
-    font-size: 17px;
-    text-transform: uppercase;
-    padding: 7px 13px;
-    border-radius: 3px;
-    text-decoration: none;
-    }
-
-    .nav ul li a.active, .nav ul li a:hover {
-    background: #baba8d;
-    transition: 0.5s;
-    }
+    @include nav-bar;
     
     .cart-count {
         background-color: blue;
@@ -65,21 +37,20 @@ body{
         }
         
         .promotion-wrapper{
-            @include background-base;
+            @include wrapper-style;
             height: 527px;
             width: 1080px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 30px auto 100px auto ;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px 0px black;
+            
             
             .promotion-container{
                 display: flex;
                 width: 1030px;
                 height: 467px;
-                background-color: white;
+                background-color: whitesmoke;
                 border-radius: 10px;       
         
                 .promotion-img{
@@ -145,49 +116,7 @@ body{
 }
 
 .cart {
-    @include base-frame;
-    background-color: beige;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-    position: absolute;
-    width: 350px;
-    top: 8.2%;
-    left: 77%;
-    text-align: center;
-    
-    .cart-row {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background-color: white;
-  
-      
-      .cart-item {
-  
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-  
-        .cart-item-image {
-          margin: 5px auto;
-        }
-  
-        .cart-item-title {
-          text-align: center;
-        }
-    
-      }
-  
-    }
-  
-  
-    button {
-      width:  100px;
-    }
-  
+  @include cart-style;
   }
   
   

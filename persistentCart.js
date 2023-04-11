@@ -125,13 +125,14 @@ function purchaseClicked() {
     if(document.getElementsByClassName('cart-row').length === 0) {
         alert('There is nothing in the cart')
     } else if (document.getElementsByClassName('cart-row').length > 0){   
-        alert('Thank you for your purchase')
+        cartCheckout()
         var cartItems = document.getElementsByClassName('cart-items')[0]
         while (cartItems.hasChildNodes()) {
             cartItems.removeChild(cartItems.firstChild)
         }
         document.getElementsByClassName(`btn-purchase`)[0].style.display= 'none'
         updateCartTotal()
+        window.location.href = `checkout.html`
     }
 
     cart.classList.add('hide');
@@ -214,6 +215,25 @@ function addItemToCart(title,price,imageSrc,place) {
     // just to remember that this is apart of the original function
     // cart.classList.remove('hide')
 };
+
+function cartCheckout() {
+    for (let i = 0; i < document.getElementsByClassName(`cart-item`).length; i++  ) {
+        // diagnostics(i);
+        var title = document.getElementsByClassName(`cart-item-title`)[i].textContent;
+        var priceElement = document.getElementsByClassName('cart-price')[i].textContent;
+        var quantityElement = document.getElementsByClassName('cart-quantity-input')[i].value;
+        let checkoutOBJ = {title: title, price: priceElement, quantity: quantityElement,};
+        console.log(checkoutOBJ);
+        checkoutStore = JSON.stringify(checkoutOBJ)
+        sessionStorage.setItem(`checkout${i}`, checkoutStore)
+        console.log(sessionStorage)
+    }
+
+    var total = document.getElementsByClassName(`cart-total-price`)[0].textContent
+    let checkoutTotal = JSON.stringify(total)
+    sessionStorage.setItem('total', checkoutTotal)
+    
+}
 
 persistCart()
 showCart()

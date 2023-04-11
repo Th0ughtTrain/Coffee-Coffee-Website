@@ -1,8 +1,10 @@
 @import '_module.scss';
 
+
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Roboto' ;
 }
 
 body {
@@ -42,6 +44,21 @@ body {
   transition: 0.5s;
 }
 
+.toggle-cart {
+  color: white;
+  font-size:17px;
+  text-transform:uppercase;
+  padding: 7px 13px;
+  border-radius: 3px;
+  border: none;
+  background: none;      
+}
+
+.toggle-cart.active,.toggle-cart:hover{
+  background: #baba8d;
+  transition: .5s;
+}
+
 .cart-count {
   // display: flex;
   // align-items: center;
@@ -58,15 +75,14 @@ body {
 }
 
 .wrapper {
-  background-color: whitesmoke;
+  @include wrapper-style;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 900px;
-  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
   margin: 10px 10px;
-  border-radius: 10px;
+  
 
   h1 {
     margin: 10px;
@@ -204,7 +220,6 @@ body {
 
 .shop-item-button {
   margin: 10px auto;
-  border: none;
   border-radius: 10%;
   width: 100px;
   height: 50px;
@@ -232,49 +247,7 @@ body {
 }
 
 .cart {
-  @include base-frame;
-  background-color: beige;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  // border: 1px solid black ;
-  position: absolute;
-  width: 350px;
-  top: 6.5%;
-  left: 77%;
-  text-align: center;
-  
-  .cart-row {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: white;
-
-    
-    .cart-item {
-
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-
-      .cart-item-image {
-        margin: 5px auto;
-      }
-
-      .cart-item-title {
-        text-align: center;
-      }
-  
-    }
-
-  }
-
-
-  button {
-    width:  100px;
-  }
-
+    @include cart-style;
 }
 
 
@@ -298,4 +271,23 @@ body {
 
 .hide {
   display: none;
+}
+
+.footer {
+    background-color: #712e1e;
+    height: 160px;
+    width: 100%;
+    text-align: center;
+    
+    p{
+      color: white;
+      margin: 10px auto;
+    }
+  
+    img {
+      width: 40px;
+      height: 40px;
+      margin: auto 15px;
+    }
+  
 }
