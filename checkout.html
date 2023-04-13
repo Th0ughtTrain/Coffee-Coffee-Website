@@ -14,22 +14,24 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="menu.html">Menu</a></li>
+                <li><a href="promotions.html">Promotions</a></li>
                 <li><button class="toggle-cart">Cart</button></li>
             </ul>
             <div class="cart-count">
                 <p></p>
             </div>
-            <section class="cart hide">
-                <strong>CART</strong>
-                <div class="cart-items">
-                </div>
-                <div class="cart-total">
-                        <strong class="cart-total-title">Total</strong>
-                        <span class="cart-total-price">$0</span>
-                </div>
-                    <button class="btn btn-primary btn-purchase" style="display: none">Go To Checkout</button>
-            </section>
+            
         </div>
+        <section class="cart hide">
+            <strong>CART</strong>
+            <div class="cart-items">
+            </div>
+            <div class="cart-total">
+                    <strong class="cart-total-title">Total</strong>
+                    <span class="cart-total-price">$0</span>
+            </div>
+                <button class="btn btn-primary btn-purchase" style="display: none">Go Back to Menu</button>
+        </section>
         <h1>Checkout</h1>
         <div class="checkout-wrapper">
             <div class="checkout-container">
@@ -70,18 +72,19 @@
             </div>
             <div class="payment-info">
                 <h2>Payment Information</h2>
-                <form>
+                <form class=" payment-form">
                     <label for="card-number">Card Number</label>
-                    <input type="text" name="card-number" id="card-number" class="text-field payment">
+                    <input type="text" name="card-number" id="card-number" class="text-field payment" maxlength="0" value="1234567">
                     <br>
                     <label for="expiration">Expiration Date(mm/yyyy)</label>
-                    <!-- <input type="date" name="expiration payment" class="expiration payment">  -->
                     <input type="text" name="expiration" maxlength="2" maxlength="2" class="expiration month payment">
                     <input type ="text" name="expiration" maxlength="4" minlength="4" class="expiration year payment">
                     <label for="card-code">Card Code</label>
-                    <input type="text" name="card-code" maxlength="3" minlength="3" id="card-code" class="payment">
+                    <input type="text" name="card-code" maxlength="3" minlength="3" id="card-code" class=" card-security payment">
+                    
                 </form>
                 <button class="checkout-btn-purchase">Purchase</button>
+                <img src="Images\Credit Card Security Code.jpg" width="200px" alt="credit card security code location" >
             </div>
         </div>
         <div class="footer">
@@ -90,8 +93,7 @@
             <p>Follow us on Social Media!!</p>
             <a href=""><img src="Images\f-ogo_RGB_HEX-58.png" alt="facebook page"></a>
             <a href=""><img src="Images\glyph-logo_May2016-150x150.png" alt="instagram page"></a>
-            <a href=""><img src="Images\Twitter_Logo_Blue-150x150.png" alt="Twitter"></a>
-            <div><button id="back-to-top" >Back to Top</button></div>
+            <a href=""><img src="Images\Twitter_Logo_Blue-150x150.png" alt="Twitter" ></a>
         </div>
     </div>
     <script src="checkout.js" async defer></script>

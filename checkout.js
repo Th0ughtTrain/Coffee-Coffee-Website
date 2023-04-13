@@ -4,6 +4,8 @@ if (document.readyState == "loading") {
     ready()
 }
 
+
+
 var cart = document.getElementsByClassName(`cart`)[0]
 
 function showCart() {
@@ -18,6 +20,7 @@ function showCart() {
                 
     })
 };
+
 
 function ready() {
     var removeCartItemButtons=document.getElementsByClassName('btn-danger')
@@ -38,9 +41,10 @@ function ready() {
     button.addEventListener('click', addToCartClicked)
     }
 
-    document.getElementsByClassName('btn-purchase')[0].addEventListener('click',purchaseClicked)
+    document.getElementsByClassName('btn-purchase')[0].addEventListener('click',returnToMenuClicked)
 };
 
+//section: Update Cart Total
 function updateCartTotal() {
     var cartItemContainer = document.getElementsByClassName('cart-items')[0]
     var cartRows = cartItemContainer.getElementsByClassName('cart-row')
@@ -61,7 +65,7 @@ function updateCartTotal() {
     document.getElementsByClassName('cart-total-price')[0].textContent = '$' + total
 };
 
-
+//section: Contents of Cart Persists in Local Storage
 function persistCart() {
     if (localStorage.length > 0) {
         for (let i = 0; i < localStorage.length; i++) {
@@ -79,6 +83,55 @@ function persistCart() {
     displayCartCount()
     updateCartTotal()
 }
+
+//section: Removes Items From Cart
+function removeCartItem(e) {
+    var buttonClicked = e.target
+    var sharedClassName = document.getElementsByClassName(buttonClicked.parentElement.parentElement.classList[1])
+    let storageNumber = buttonClicked.parentElement.parentElement.firstChild.value
+
+    console.log(storageNumber)
+    console.log(sharedClassName)
+    localStorage.removeItem(storageNumber)
+
+    for ( let i = 0; i < sharedClassName.length; i++  ) {
+        sharedClassName[i].classList.remove(buttonClicked.parentElement.parentElement.classList[1])
+    }
+
+    
+    buttonClicked.parentElement.parentElement.remove()
+
+    if (document.getElementsByClassName('cart-item').length < 1){
+        document.getElementsByClassName(`btn-purchase`)[0].style.display= 'none';
+    }
+
+    updateCartTotal()
+    displayCartCount()
+};
+
+//Section: Displays How Many Items Are In Cart
+function displayCartCount() {
+    let count = document.getElementsByClassName('cart-count')[0]
+    let number = count.childNodes[1]
+    console.log(number)
+    if (localStorage.length === 0) {
+        count.style.display = `none`;
+    } else {
+
+        count.style.display = 'flex';
+        count.style.flexDirection = 'column';
+        count.style.alignItems = `center`;
+        count.style.justifyContent = 'center'
+        number.classList.add(`count-integer`)
+        number.textContent = localStorage.length
+        
+    }
+}
+
+function returnToMenuClicked() {
+    window.location.href = 'menu.html'
+    cart.classList.add('hide');
+};
 
 function removeCartItem(e) {
     var buttonClicked = e.target
@@ -104,46 +157,43 @@ function removeCartItem(e) {
     displayCartCount()
 };
 
-function displayCartCount() {
-    let count = document.getElementsByClassName('cart-count')[0]
-    let number = count.childNodes[1]
-    console.log(number)
-    if (localStorage.length === 0) {
-        count.style.display = `none`;
-    } else {
-
-        count.style.display = 'flex';
-        count.style.flexDirection = 'column';
-        count.style.alignItems = `center`;
-        count.style.justifyContent = 'center'
-        number.classList.add(`count-integer`)
-        number.textContent = localStorage.length
-        
-    }
-}
-
-function purchaseClicked() {
-    if(document.getElementsByClassName('cart-row').length === 0) {
-        alert('There is nothing in the cart')
-    } else if (document.getElementsByClassName('cart-row').length > 0){   
-        alert('Thank you for your purchase')
-        var cartItems = document.getElementsByClassName('cart-items')[0]
-        while (cartItems.hasChildNodes()) {
-            cartItems.removeChild(cartItems.firstChild)
-        }
-        document.getElementsByClassName(`btn-purchase`)[0].style.display= 'none'
-        updateCartTotal()
-    }
-
-    cart.classList.add('hide');
-};
-
 function quantityChanged(event) {
     var input = event.target
     if (isNaN(input.value) || input.value <= 0) {
         input.value = 1
     }
     updateCartTotal()
+};
+
+function addToCartClicked(e){
+    var place = Math.random()
+    var button = e.target
+    var shopItem = button.parentElement.parentElement 
+    var title = shopItem.getElementsByClassName('shop-item-title')[0].textContent
+    var price = shopItem.getElementsByClassName('shop-item-price')[0].textContent
+    var imageSrc =shopItem.getElementsByClassName('shop-item-image')[0].src
+    shopItem.classList.add(`item-${place}`)
+    addItemToCart(title,price,imageSrc,place)
+    updateCartTotal()
+    addToStorage(title,price,imageSrc,place)
+    
+};
+
+function addToStorage(title,price,imageSrc,place) {
+    var infoArray = [title,price,imageSrc]
+    cartItemString = JSON.stringify(infoArray)
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        const value = localStorage.getItem(key);
+        extractedData = JSON.parse(value);
+        extractedTitle = extractedData[0]
+        if (title === extractedTitle) {
+            return;
+            }
+        } 
+    
+    localStorage.setItem(place, cartItemString)
+    displayCartCount()
 };
 
 function addItemToCart(title,price,imageSrc,place) {
@@ -196,6 +246,18 @@ function addItemToCart(title,price,imageSrc,place) {
     cartRowQuantityBtn.type = `button`
     cartRowQuantityBtn.textContent = 'Remove'
 
+    // var cartRowContents = `
+    //     <div class="cart-item cart-column">
+    //         <img class="cart-item-image" src="${imageSrc}" alt="" width="36px" height="27px">
+    //         <span class="cart-item-title">${title}</span>
+    //     </div>
+    //     <span class="cart-price cart-column">${price}</span>
+    //     <div class="cart-quantity cart-column">
+    //         <input type="number" class="cart-quantity-input" value="1">
+    //         <button class="btn btn-danger" type="button">Remove</button>
+    //     </div>`
+    // cartRow.innerHTML = cartRowContents
+
     cartItems.append(cartRow)
     cartRow.append(storageValue)
     cartRow.append(cartRowItem)
@@ -212,8 +274,27 @@ function addItemToCart(title,price,imageSrc,place) {
     cartRow.style.margin = "10px auto"
     cartRow.style.width = `100%`
     document.getElementsByClassName(`btn-purchase`)[0].style.display = 'block'
-    // just to remember that this is apart of the original function
-    // cart.classList.remove('hide')
+    cart.classList.remove('hide')
+};
+
+function updateCartTotal() {
+    var cartItemContainer = document.getElementsByClassName('cart-items')[0]
+    var cartRows = cartItemContainer.getElementsByClassName('cart-row')
+    var total = 0
+    
+    for (var i = 0; i < cartRows.length; i++) {
+    
+        var cartRow = cartRows[i]
+        var priceElement = cartRow.getElementsByClassName('cart-price')[0]
+        var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
+        var price = parseFloat(priceElement.textContent.replace('$',''))
+        var quantity = quantityElement.value 
+        total = total + (price * quantity);        
+    }
+    
+
+    total = Math.round(total * 100)/100
+    document.getElementsByClassName('cart-total-price')[0].textContent = '$' + total
 };
 
 function checkoutItems(title,price,quantity) {
@@ -289,13 +370,19 @@ function textContentCompleted() {
         alert("this date is not valid")
         return
 
-    } else {
+    }
+    
+    if(document.getElementsByClassName(`card-security`)[0].value !== "") {
         alert('Thank you for you purchase');
-        localStorage.clear()
-        sessionStorage.clear()
-        retriveFromSessionStorage()
-        persistCart()
-        window.location.href = 'index.html'
+                localStorage.clear()
+                sessionStorage.clear()
+                retriveFromSessionStorage()
+                persistCart()
+                window.location.href = 'index.html'
+    } else {
+        document.getElementsByClassName('text-field billing')[i].style.backgroundColor = 'red'
+        document.getElementsByClassName('text-field billing')[i].scrollIntoView({behavior: 'smooth'});
+        return
     }
 }
 

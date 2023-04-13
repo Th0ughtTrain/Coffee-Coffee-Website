@@ -77,6 +77,7 @@ function persistCart() {
     }
 
     displayCartCount()
+    updateCartTotal()
 }
 
 function removeCartItem(e) {

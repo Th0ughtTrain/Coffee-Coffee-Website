@@ -11,10 +11,12 @@
     </head>
     <body>
         <div class="nav">
+            <img src="Images\coffecoffeelogo.png" width="70px" alt="Coffee Coffee Logo">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="menu.html">Menu</a></li>
+                <li><a href="promotions.html">Promotions</a></li>
                 <li><button class="toggle-cart">Cart</button></li>
             </ul>
             <div class="cart-count">
@@ -32,22 +34,22 @@
                 <button class="btn btn-primary btn-purchase" style="display: none">Go To Checkout</button>
         </section>
         <div class="content">
-            <div id="promotion"><img src="Images\pexels-joe-l-2788792.jpg" alt="">
+            <div id="promotion"><img src="Images\pexels-marta-dzedyshko-2067628.jpg" alt="">
                 <h1>Get the Perks!</h1>
-                <a href="promotions.html" alt="See Special Promotions">See Promotions</a></div>
+                <a href="promotions.html" alt="See Special Promotions">See Promotions</a>
+            </div>
             <div id="about">
-                <button id="to-about">About</button>
+                <a href="about.html"><button id="to-about">Learn More About Coffee Coffee</button></a>
             </div>
             <div id="menu">
                 <div id="menuitem">
                     <div class="menuitem-desc">
                         <h1>Get our newest blend today!</h1>
-                        <div class="purchase"><button>See More</button></div>
+                        <div class="purchase"><a href="Product1Page.html">See More</a></div> <!-- change to anchor -->
                     </div>
                     <div class="menuitem-img">
                         <img src="Images\cinnamonwalnut.png" width="650px" height="" alt="">
-                    </div>
-                    
+                    </div>   
                 </div>
                 <div class="whole-menu">
                     <div class="whole-menu-img">
@@ -57,8 +59,7 @@
                         <h1>See the Entire Menu!</h1>
                         <h2>We have other great flavors to choose from!</h2>
                         <h2>Check out our Menu!</h2>
-                        
-                        <a href="menu.html">Menu</a>
+                        <div class="to-menu"><a href="menu.html">Menu</a></div>
                     </div>
                     
                 </div>
@@ -72,8 +73,7 @@
             <a href=""><img src="Images\f-ogo_RGB_HEX-58.png" alt="facebook page"></a>
             <a href=""><img src="Images\glyph-logo_May2016-150x150.png" alt="instagram page"></a>
             <a href=""><img src="Images\Twitter_Logo_Blue-150x150.png" alt=" Twitter"></a>
-            <div><button id="back-to-top" >Back to Top</button></div>
-         </div>
+        </div>
          <script src="persistentCart.js" async defer></script>
     </body>
 </html>

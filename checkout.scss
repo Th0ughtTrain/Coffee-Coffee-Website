@@ -8,7 +8,6 @@
 body {
   font-family: 'Roboto';
   height: 950px;
-  width: 100%; 
   background-image: url("Images\\pexels-fwstudio-129731.jpg");
 
     
@@ -27,110 +26,10 @@ body {
 
 }
 
-.nav {
-  background-color: #712e1e;
-  height: 60px;
-  width: 100%;
-}
-.nav ul {
-  float: right;
-  margin-right: 130px;
-}
-
-.nav ul li {
-  display: inline-block;
-  line-height: 80px;
-  margin: 0 5px;
-}
-
-.nav ul li a {
-  color: white;
-  font-size: 17px;
-  text-transform: uppercase;
-  padding: 7px 13px;
-  border-radius: 3px;
-  text-decoration: none;
-}
-.nav ul li a.active, .nav ul li a:hover {
-  background: #baba8d;
-  transition: 0.5s;
-}
-
-.toggle-cart {
-  color: white;
-  font-size:17px;
-  text-transform:uppercase;
-  padding: 7px 13px;
-  border-radius: 3px;
-  border: none;
-  background: none;      
-}
-
-.toggle-cart.active,.toggle-cart:hover {
-  background: #1b9bff;
-  transition: .5s;
-}
-
-.cart-count {
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
-  background-color: blue;
-  border-radius: 100%;
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  position: absolute;
-  color: white;
-  top: 9px;
-  right: 140px;
-}
+@include nav-bar;
 
 .cart {
-  @include base-frame;
-  background-color: whitesmoke;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  // border: 1px solid black ;
-  position: absolute;
-  width: 350px;
-  top: 7.7%;
-  left: 76.5%;
-  text-align: center;
-  z-index: 2;
-
-  .cart-row {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: whitesmoke;
-
-  
-  .cart-item {
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    .cart-item-image {
-      margin: 5px auto;
-    }
-
-    .cart-item-title {
-      text-align: center;
-    }
-
-  }
-
-}
-
-
-button {
-  width:  100px;
-}
-
+  @include cart-style;
 }
 
 .cart-quantity {
@@ -163,7 +62,7 @@ button {
     background-color: whitesmoke;
     box-shadow: 0px 0px 10px 0px;
     border: 10px solid #888870;
-    margin: 10px auto;
+    margin: 40px auto;
 
     .checkout-container {
       width: 700px;
@@ -215,30 +114,22 @@ button {
       }
 
       .checkout-btn-purchase {
+        position: relative;
         height: 50px;
         width: 100px;
         background-color: #712e1e;
         color: white;
         border-radius: 10px;
+        bottom: 100px;
       }
+
+      img {
+        position: relative;
+        bottom: 80px;
+        left: 430px;
+      }
+
     }
 }
 
-.footer {
-    background-color: #712e1e;
-    height: 160px;
-    width: 100%;
-    text-align: center;
-  
-    p{
-      color: white;
-      margin: 10px auto;
-    }
-  
-    img{
-      width: 40px;
-      height: 40px;
-      margin: auto 15px;
-    }
-  
-}
+@include footer;

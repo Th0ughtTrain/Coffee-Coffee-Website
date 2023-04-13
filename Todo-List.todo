@@ -1,0 +1,38 @@
+Todo:
+    
+    [] improve website design. 
+    [] make website responsive
+    [] expand about us section of main page
+    [] change all the anchor hover colors to  #baba8d;
+    [] update product descriptions
+
+Currently Working On:
+    
+
+
+Considering:
+    [-] update local storage to hold cart quantity information
+    [-] adding media query for logo or just keeping it in the corner
+    
+
+Done:
+    [x] Style the buttons
+    [x] adding the purchase button after you press add to cart.
+    [x] Reset total after making purchase
+    [x] Make nav bar functional
+    [x] make cart persistent across the various pages
+    [x] having the number of cart items showing next to the cart  and remaining persistant. 
+    [x] take out back to top in cartfunction.js
+    [x] finish rewards card (photoshop is having some problems)
+    [x] add a checkout page 
+    [x] adding active animations to social media buttons
+    [x] Connect all of the pages
+    [x] create an expiration date field in Javascript
+    [x] add back to menu button to checkout
+    [x] update navbars to use mixin rules
+    [x] give functionality to see more button in index.html
+    [x] style promotions button in index.html 
+    [x] style about button in index.html
+    [x] change index.html promotions image
+    [x] Change blends to something else
+    [x] make a card code image for checkout

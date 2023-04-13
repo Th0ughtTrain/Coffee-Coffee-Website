@@ -38,13 +38,23 @@
 
 @mixin nav-bar {
     .nav {
+        position: relative;
         background-color: #712e1e;
-        height: 60px;
+        height: 80px;
         width: 100%;
+        
+        img {
+        position: absolute;
+        top: 2px;
+        left: 48.5%;
       }
+
+      }
+
+      
       .nav ul {
         float: right;
-        margin-right: 130px;
+        margin-right: 8%;
       }
       
       .nav ul li {
@@ -82,16 +92,16 @@
       }
       
       .cart-count {
-      
+        position: absolute;
         background-color: blue;
         border-radius: 100%;
         width: 30px;
         height: 30px;
         text-align: center;
-        position: absolute;
         color: white;
         top: 9px;
-        right: 140px;
+        right: 8%;
+        
       }
 }
 
@@ -149,16 +159,29 @@
         height: 170px;
         width: 100%;
         text-align: center;
+        overflow: hidden;
       
         p{
           color: white;
-          margin: 10px auto;
+          margin: 12px auto;
         }
       
         img{
           width: 40px;
           height: 40px;
           margin: auto 15px;
+        }
+
+        img:hover {
+            width: 55px;
+            height: 55px;
+            transition: .5s;
+        }
+
+        img:active {
+            width: 50px;
+            height: 50px;
+            transition: .1s
         }
       
       }
