@@ -6,7 +6,7 @@
 
 body {
   height: 1500px;
-  background-image: url("Images\\pexels-fwstudio-129731.jpg");
+  background-image: url("..\\Images\\pexels-fwstudio-129731.jpg");
 }
 body .nav {
   position: relative;
@@ -119,31 +119,6 @@ body .wrapper .promotion-wrapper .promotion-container .promotion-description p {
   margin: 10px;
   font-size: 1.5em;
 }
-body .footer {
-  background-color: #712e1e;
-  height: 170px;
-  width: 100%;
-  text-align: center;
-}
-body .footer p {
-  color: white;
-  margin: 15px auto;
-}
-body .footer img {
-  width: 40px;
-  height: 40px;
-  margin: auto 15px;
-}
-body .footer img:hover {
-  width: 60px;
-  height: 60px;
-  transition: 0.5s;
-}
-body .footer img:active {
-  width: 50px;
-  height: 50px;
-  transition: 0.1s;
-}
 
 .cart {
   border-radius: 0 0 1% 1%;
@@ -194,6 +169,33 @@ body .footer img:active {
 
 .hide {
   display: none;
+}
+
+.footer {
+  background-color: #712e1e;
+  height: 170px;
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+}
+.footer p {
+  color: white;
+  margin: 12px auto;
+}
+.footer img {
+  width: 40px;
+  height: 40px;
+  margin: auto 15px;
+}
+.footer img:hover {
+  width: 55px;
+  height: 55px;
+  transition: 0.5s;
+}
+.footer img:active {
+  width: 50px;
+  height: 50px;
+  transition: 0.1s;
 }
 
 /*# sourceMappingURL=promotions.css.map */

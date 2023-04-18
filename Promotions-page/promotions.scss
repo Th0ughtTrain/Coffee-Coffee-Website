@@ -1,4 +1,4 @@
-@import 'module';
+@import '..\\module';
 
 *{
     margin: 0;
@@ -8,7 +8,7 @@
 
 body{
     height: 1500px;
-    background-image: url("Images\\pexels-fwstudio-129731.jpg"); 
+    background-image: url("..\\Images\\pexels-fwstudio-129731.jpg"); 
 
     @include nav-bar;
      

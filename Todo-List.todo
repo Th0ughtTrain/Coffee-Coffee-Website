@@ -1,18 +1,20 @@
 Todo:
     
+    
     [] improve website design. 
     [] make website responsive
-    [] expand about us section of main page
-    [] change all the anchor hover colors to  #baba8d;
+    [-] expand about us section of main page
     [] update product descriptions
-
+    [] improve accessibility
+    [] add readme
+    
 Currently Working On:
     
-
 
 Considering:
     [-] update local storage to hold cart quantity information
     [-] adding media query for logo or just keeping it in the corner
+    [] breaking up javascript files into modules
     
 
 Done:
@@ -36,3 +38,5 @@ Done:
     [x] change index.html promotions image
     [x] Change blends to something else
     [x] make a card code image for checkout
+    [x] add required tag to checkout fields
+    [x] change all the anchor hover colors to  #baba8d;

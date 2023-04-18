@@ -1,6 +1,6 @@
 
 
-@import '_module.scss';
+@import '..\\_module.scss';
 
 * {
     margin: 0;
@@ -9,7 +9,7 @@
 }
 
 body{
-  background-image: url("Images\\pexels-fwstudio-129731.jpg")
+  background-image: url("..\\Images\\pexels-fwstudio-129731.jpg")
 }
 
 
@@ -44,20 +44,33 @@ body{
 
 .go-to-cart {
     /* @include template-bottom(); */
-    height: 20px;
+    position: relative;
+    width: 100px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 5px auto auto 40px;
+    left: 30px;
+    bottom: 20px;
+    margin: auto;
+    background-color: #712e1e;
+    border-radius: 10px;
+    color: white;
 
-    .btn-to-cart {
-        width: 200px;
-        height: 50px;
-        background-color: #712e1e  ;
-        color: white;
-        border: none;
-        border-radius: 5%;
-    }
+    a {
+      color: white;
+      text-decoration: none;
+    }   
+}
+
+.go-to-cart:hover {
+      background-color: #baba8d;
+}
+
+.go-to-cart:active {
+  width: 80px;
+  height: 40px; 
+  font-size: 0.8em;
 }
 
 .product-description {

@@ -1,4 +1,4 @@
-@import '_module.scss';
+@import '..\\_module.scss';
 
 
 * {
@@ -11,7 +11,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url('Images\\pexels-fwstudio-129731.jpg');
+  background-image: url('..\\Images\\pexels-fwstudio-129731.jpg');
   
 }
 
@@ -165,9 +165,21 @@ body {
   margin: 10px auto;
   border-radius: 10%;
   width: 100px;
-  height: 50px;
+  height: 20px;
+  padding: 20px 10px;
   background-color: #712e1e;
   color: white;
+  text-align: center
+}
+
+.shop-item-button:hover {
+  background-color: #baba8d;
+}
+
+.shop-item-button:active {
+  font-size: .8em;
+  height: 15px;
+  width:  75px;
 }
 
 

@@ -4,76 +4,88 @@ if (document.readyState == "loading") {
     ready()
 }
 
-var cart = document.getElementsByClassName(`cart`)[0]
-
-
-// let persistentCart = cartDetails.map( (items) =>{
-//     return items.innerHTML
-// })
-
-function showCart() {
-    var showCartButton = document.getElementsByClassName('toggle-cart')[0]
-    showCartButton.addEventListener(`click`,() => {
-        if (cart.classList.contains(`hide`)) {
-            cart.classList.remove(`hide`)
-        } else {
-            cart.classList.add('hide')
-        }
-                
-        // console.log(cart.innerHTML)
-        // console.log(myCartItems)
-        // for (let i = 0; i < myCartItems.length; i++) {
-        //     console.log(myCartItems[i].innerHTML)
-        // }
-    })
-};
 
 function ready() {
+
     var removeCartItemButtons=document.getElementsByClassName('btn-danger')
     for(var i = 0; i < removeCartItemButtons.length; i++) {
+
         var button = removeCartItemButtons[i]
         button.addEventListener('click', removeCartItem)
+
     }
 
     var quantityInputs = document.getElementsByClassName('cart-quantity-input')
     for (var i = 0; i < quantityInputs.length; i++) {
+
         var input = quantityInputs[i]
         input.addEventListener('change', quantityChanged)
+
     }
 
     var addToCartButtons = document.getElementsByClassName('shop-item-button')
     for (var i = 0; i < addToCartButtons.length; i++) {
-    var button = addToCartButtons[i]
-    button.addEventListener('click', addToCartClicked)
+
+        var button = addToCartButtons[i]
+        button.addEventListener('click', addToCartClicked)
+
     }
 
     document.getElementsByClassName('btn-purchase')[0].addEventListener('click',purchaseClicked)
 };
 
-function purchaseClicked() {
-    if(document.getElementsByClassName('cart-row').length === 0) {
-        alert('There is nothing in the cart')
-    } else if (document.getElementsByClassName('cart-row').length > 0){   
-        cartCheckout()
-        var cartItems = document.getElementsByClassName('cart-items')[0]
-        while (cartItems.hasChildNodes()) {
-            cartItems.removeChild(cartItems.firstChild)
-        }
-        document.getElementsByClassName(`btn-purchase`)[0].style.display= 'none'
-        updateCartTotal()
-        window.location.href = `checkout.html`
-    }
+//section: direct cart manipulation
 
-    cart.classList.add('hide');
+
+//sub-section: display and hide cart
+
+function showCart() {
+
+    var cart = document.getElementsByClassName(`cart`)[0]
+    var showCartButton = document.getElementsByClassName('toggle-cart')[0]
+    showCartButton.addEventListener(`click`,() => {
+
+        if (cart.classList.contains(`hide`)) {
+            cart.classList.remove(`hide`)
+        } else {
+            cart.classList.add('hide')
+        }     
+
+    })
 };
 
-// console.log(document.getElementsByClassName('cart-row'))
+//sub-section: update cart total
+
+function updateCartTotal() {
+
+    var cartItemContainer = document.getElementsByClassName('cart-items')[0]
+    var cartRows = cartItemContainer.getElementsByClassName('cart-row')
+    var total = 0
+    
+    for (var i = 0; i < cartRows.length; i++) {
+    
+        var cartRow = cartRows[i]
+        var priceElement = cartRow.getElementsByClassName('cart-price')[0]
+        var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
+        var price = parseFloat(priceElement.textContent.replace('$',''))
+        var quantity = quantityElement.value 
+        total = total + (price * quantity);        
+
+    }
+    
+    total = Math.round(total * 100)/100
+    document.getElementsByClassName('cart-total-price')[0].textContent = '$' + total
+
+};
+
+
+//sub-section: removes items from cart
 
 function removeCartItem(e) {
+
     var buttonClicked = e.target
     var sharedClassName = document.getElementsByClassName(buttonClicked.parentElement.parentElement.classList[1])
     let storageNumber = buttonClicked.parentElement.parentElement.firstChild.value
-
     console.log(storageNumber)
     console.log(sharedClassName)
     localStorage.removeItem(storageNumber)
@@ -87,62 +99,120 @@ function removeCartItem(e) {
 
     if (document.getElementsByClassName('cart-item').length < 1){
         document.getElementsByClassName(`btn-purchase`)[0].style.display= 'none';
+        cart.classList.add('hide')
     }
 
     updateCartTotal()
     displayCartCount()
 };
+
+//sub-section: displays how many items are in the cart
+
+
+function displayCartCount() {
+    let count = document.getElementsByClassName('cart-count')[0]
+    let number = count.childNodes[1]
+    console.log(number)
+    if (localStorage.length === 0) {
+
+        count.style.display = `none`;
+
+    } else {
+
+        count.style.display = 'flex';
+        count.style.flexDirection = 'column';
+        count.style.alignItems = `center`;
+        count.style.justifyContent = 'center'
+        number.classList.add(`count-integer`)
+        number.textContent = localStorage.length
+        
+    }
+}
+
+
+
+//sub-section: what happens when the checkout button is clicked
+
+function purchaseClicked() {
+    
+    if(document.getElementsByClassName('cart-row').length === 0) {
+
+        alert('There is nothing in the cart')
+        
+    } else if (document.getElementsByClassName('cart-row').length > 0){ 
+          
+        cartCheckout()
+        var cartItems = document.getElementsByClassName('cart-items')[0]
+        while (cartItems.hasChildNodes()) {
+            cartItems.removeChild(cartItems.firstChild)
+
+        }
+
+        document.getElementsByClassName(`btn-purchase`)[0].style.display= 'none'
+        updateCartTotal()
+        window.location.href = `../Checkout-page/checkout.html`
+
+    }
+
+    cart.classList.add('hide');
+    
+};
+
+
+
+//sub-section: watches how the quantity input changes to update the prices
 
 function quantityChanged(event) {
+
     var input = event.target
     if (isNaN(input.value) || input.value <= 0) {
+
         input.value = 1
+
     }
+
     updateCartTotal()
+
 };
 
-function addToCartClicked(e){
-    var place = Math.random()
-    var button = e.target
-    var shopItem = button.parentElement.parentElement 
-    var title = shopItem.getElementsByClassName('shop-item-title')[0].textContent
-    var price = shopItem.getElementsByClassName('shop-item-price')[0].textContent
-    var imageSrc =shopItem.getElementsByClassName('shop-item-image')[0].src
-    shopItem.classList.add(`item-${place}`)
-    addItemToCart(title,price,imageSrc,place)
-    updateCartTotal()
-    addToStorage(title,price,imageSrc,place)
-    
-};
+//sub-section sends purchase information to cart 
 
-function addToStorage(title,price,imageSrc,place) {
-    var infoArray = [title,price,imageSrc]
-    cartItemString = JSON.stringify(infoArray)
-    for (let i = 0; i < localStorage.length; i++) {
-        const key = localStorage.key(i);
-        const value = localStorage.getItem(key);
-        extractedData = JSON.parse(value);
-        extractedTitle = extractedData[0]
-        if (title === extractedTitle) {
-            return;
-            }
-        } 
+function cartCheckout() {
+    for (let i = 0; i < document.getElementsByClassName(`cart-item`).length; i++  ) {
+
+        var title = document.getElementsByClassName(`cart-item-title`)[i].textContent;
+        var priceElement = document.getElementsByClassName('cart-price')[i].textContent;
+        var quantityElement = document.getElementsByClassName('cart-quantity-input')[i].value;
+        let checkoutOBJ = {title: title, price: priceElement, quantity: quantityElement,};
+        console.log(checkoutOBJ);
+        checkoutStore = JSON.stringify(checkoutOBJ)
+        sessionStorage.setItem(`checkout${i}`, checkoutStore)
+        console.log(sessionStorage)
+    }
+
+    var total = document.getElementsByClassName(`cart-total-price`)[0].textContent
+    let checkoutTotal = JSON.stringify(total)
+    sessionStorage.setItem('total', checkoutTotal)
     
-    localStorage.setItem(place, cartItemString)
-    displayCartCount()
-};
+}
+
+// section outside elements-to-cart interactions
+
+// sub-section add items to cart
 
 function addItemToCart(title,price,imageSrc,place) {
 
     var cartRow = document.createElement('div')
     cartRow.classList.add('cart-row')
     var cartItems = document.getElementsByClassName('cart-items')[0]
-    //!Need to add cart-item-title in html
     var cartItemNames = document.getElementsByClassName('cart-item-title')
     for (var i = 0; i < cartItemNames.length; i++){
+
         if (cartItemNames[i].textContent == title) {
+
             alert('This is Item is already added to the cart')
             return
+
         };
     };
 
@@ -182,18 +252,6 @@ function addItemToCart(title,price,imageSrc,place) {
     cartRowQuantityBtn.type = `button`
     cartRowQuantityBtn.textContent = 'Remove'
 
-    // var cartRowContents = `
-    //     <div class="cart-item cart-column">
-    //         <img class="cart-item-image" src="${imageSrc}" alt="" width="36px" height="27px">
-    //         <span class="cart-item-title">${title}</span>
-    //     </div>
-    //     <span class="cart-price cart-column">${price}</span>
-    //     <div class="cart-quantity cart-column">
-    //         <input type="number" class="cart-quantity-input" value="1">
-    //         <button class="btn btn-danger" type="button">Remove</button>
-    //     </div>`
-    // cartRow.innerHTML = cartRowContents
-
     cartItems.append(cartRow)
     cartRow.append(storageValue)
     cartRow.append(cartRowItem)
@@ -210,37 +268,49 @@ function addItemToCart(title,price,imageSrc,place) {
     cartRow.style.margin = "10px auto"
     cartRow.style.width = `100%`
     document.getElementsByClassName(`btn-purchase`)[0].style.display = 'block'
-    cart.classList.remove('hide')
+
+    // The original code used innerHTML I decided not to use it
+    // just to remember that this is apart of the original function
+    // cart.classList.remove('hide')
+
 };
 
-function updateCartTotal() {
-    var cartItemContainer = document.getElementsByClassName('cart-items')[0]
-    var cartRows = cartItemContainer.getElementsByClassName('cart-row')
-    var total = 0
-    
-    for (var i = 0; i < cartRows.length; i++) {
-    
-        var cartRow = cartRows[i]
-        var priceElement = cartRow.getElementsByClassName('cart-price')[0]
-        var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
-        var price = parseFloat(priceElement.textContent.replace('$',''))
-        var quantity = quantityElement.value 
-        total = total + (price * quantity);        
-    }
-    
+//sub-section: all that happens when the add-to-cart button is clicked
 
-    total = Math.round(total * 100)/100
-    document.getElementsByClassName('cart-total-price')[0].textContent = '$' + total
+function addToCartClicked(e){
+    var place = Math.random()
+    var button = e.target
+    var shopItem = button.parentElement.parentElement 
+    var title = shopItem.getElementsByClassName('shop-item-title')[0].textContent
+    var price = shopItem.getElementsByClassName('shop-item-price')[0].textContent
+    var imageSrc =shopItem.getElementsByClassName('shop-item-image')[0].src
+    shopItem.classList.add(`item-${place}`)
+    addItemToCart(title,price,imageSrc,place)
+    updateCartTotal()
+    addToStorage(title,price,imageSrc,place)
+    
 };
 
-let backToTop = document.getElementById('back-to-top')
+//sub-section creates storage object for objects when added to cart
 
-showCart()
-// console.log(document.getElementsByClassName('toggle-cart'))
+function addToStorage(title,price,imageSrc,place) {
+    var infoArray = [title,price,imageSrc]
+    cartItemString = JSON.stringify(infoArray)
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        const value = localStorage.getItem(key);
+        extractedData = JSON.parse(value);
+        extractedTitle = extractedData[0]
+        if (title === extractedTitle) {
+            return;
+            }
+        } 
+    
+    localStorage.setItem(place, cartItemString)
+    displayCartCount()
+};
 
-let myCartItems = document.getElementsByClassName('cart-row')
-
-// localStorage.setItem(`cartStorage`, )
+//sub-section: persist cart across web pages 
 
 function persistCart() {
     if (localStorage.length > 0) {
@@ -261,47 +331,7 @@ function persistCart() {
 }
 
 persistCart()
+showCart()
 
-function displayCartCount() {
-    let count = document.getElementsByClassName('cart-count')[0]
-    let number = count.childNodes[1]
-    console.log(number)
-    if (localStorage.length === 0) {
-        count.style.display = `none`;
-    } else {
-
-        count.style.display = 'flex';
-        count.style.flexDirection = 'column';
-        count.style.alignItems = `center`;
-        count.style.justifyContent = 'center'
-        number.classList.add(`count-integer`)
-        number.textContent = localStorage.length
-    }
-}
-
-function cartCheckout() {
-    for (let i = 0; i < document.getElementsByClassName(`cart-item`).length; i++  ) {
-        diagnostics(i);
-        var title = document.getElementsByClassName(`cart-item-title`)[i].textContent;
-        var priceElement = document.getElementsByClassName('cart-price')[i].textContent;
-        var quantityElement = document.getElementsByClassName('cart-quantity-input')[i].value;
-        let checkoutOBJ = {title: title, price: priceElement, quantity: quantityElement,};
-        console.log(checkoutOBJ);
-        checkoutStore = JSON.stringify(checkoutOBJ)
-        sessionStorage.setItem(`checkout${i}`, checkoutStore)
-        console.log(sessionStorage)
-    }
-
-    var total = document.getElementsByClassName(`cart-total-price`)[0].textContent
-    let checkoutTotal = JSON.stringify(total)
-    sessionStorage.setItem('total', checkoutTotal)
-    
-}
-
-function diagnostics(index) {
-    console.log(document.getElementsByClassName(`cart-item-title`)[index].textContent)
-        console.log(document.getElementsByClassName(`cart-price`)[index].textContent)
-        console.log(document.getElementsByClassName(`cart-quantity-input`)[index].value)
-}
 
 

@@ -10,11 +10,12 @@
 <body>
     <div class="wrapper">
         <div class="nav">
+            <img src="..\Images\coffecoffeelogo.png" width="70px" alt="Coffee Coffee Logo">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="promotions.html">Promotions</a></li>
+                <li><a href="..\index.html">Home</a></li>
+                    <li><a href="..\About-page\about.html">About</a></li>
+                    <li><a href="..\Menu-page\menu.html">Menu</a></li>
+                    <li><a href="..\Promotions-page\promotions.html">Promotions</a></li>
                 <li><button class="toggle-cart">Cart</button></li>
             </ul>
             <div class="cart-count">
@@ -37,28 +38,28 @@
             <div class="checkout-container">
                 <h2>Billing Information</h2>
                 <form class='name-field'>
-                    <label for="first-name">First Name</label>
+                    <label for="first-name">First Name (required)</label>
                     <input type="text" name="first-name" id="first-name" class="text-field billing">
-                    <label for="first-name">Last Name</label>
+                    <label for="first-name">Last Name (required) </label>
                     <input type="text" name="last-name" id="last-name" class="text-field billing">
                 </form>
                 <form class="location-field">
-                    <label for="country">Country/Region</label>
+                    <label for="country">Country/Region (required)</label>
                     <input type="text" name="country" id="country" class="text-field billing">
                     <br>
-                    <label for="street-name">Street address</label>
+                    <label for="street-name">Street address (required)</label>
                     <input type="text" name="street-name" id="street-name" class="text-field billing">
                     <br>
                     <label for="apt">Apartment/Suite/Unit/etc..</label>
                     <input type="text" name="apt" id="apt" class="text-field-optional billing">
                     <br>
-                    <label for="city">City</label>
+                    <label for="city">City (required)</label>
                     <input type="text" name="city" id="city" class="text-field billing">
                     <br>
                     <label for="state" class="">State</label>
-                    <input type="text" name="state" id="state" class="text-field billing">
+                    <input type="text" name="state" id="state" class="text-field-optional billing">
                     <br>
-                    <label for="zip-code">Zip Code</label>
+                    <label for="zip-code">Zip/Postal Code (required) </label>
                     <input type="text" name="zip-code" id="zip-code" class="text-field billing">
                 </form>
                 <form class="email-field">
@@ -83,17 +84,17 @@
                     <input type="text" name="card-code" maxlength="3" minlength="3" id="card-code" class=" card-security payment">
                     
                 </form>
-                <button class="checkout-btn-purchase">Purchase</button>
-                <img src="Images\Credit Card Security Code.jpg" width="200px" alt="credit card security code location" >
+                <a class="checkout-btn-purchase">Purchase</a>
+                <img src="..\Images\Credit Card Security Code.jpg" width="200px" alt="credit card security code location" >
             </div>
         </div>
         <div class="footer">
             <p>Phone: 123-456-789</p>
             <p>Address: XXXXX Coffee Way Drive</p>
             <p>Follow us on Social Media!!</p>
-            <a href=""><img src="Images\f-ogo_RGB_HEX-58.png" alt="facebook page"></a>
-            <a href=""><img src="Images\glyph-logo_May2016-150x150.png" alt="instagram page"></a>
-            <a href=""><img src="Images\Twitter_Logo_Blue-150x150.png" alt="Twitter" ></a>
+            <a href=""><img src="..\Images\f-ogo_RGB_HEX-58.png" alt="facebook page"></a>
+            <a href=""><img src="..\Images\glyph-logo_May2016-150x150.png" alt="instagram page"></a>
+            <a href=""><img src="..\Images\Twitter_Logo_Blue-150x150.png" alt="Twitter" ></a>
         </div>
     </div>
     <script src="checkout.js" async defer></script>
