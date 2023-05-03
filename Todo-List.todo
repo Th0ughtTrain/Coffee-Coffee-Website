@@ -4,9 +4,8 @@ Todo:
     [] improve website design. 
     [] make website responsive
     [-] expand about us section of main page
-    [] update product descriptions
     [] improve accessibility
-    [] add readme
+    
     
 Currently Working On:
     
@@ -40,3 +39,5 @@ Done:
     [x] make a card code image for checkout
     [x] add required tag to checkout fields
     [x] change all the anchor hover colors to  #baba8d;
+    [x] add readme
+    [x] update product descriptions

@@ -1,9 +1,5 @@
 # Coffee Coffee website
 
-## Table of Contents
-
-
-
 ### Introduction
 
 The idea of this website came about as somewhat of a challenge. I wanted to develop a mock website design and was considering designing ideas that were interesting but also weren't tied to anything I was personally interested in, I feel this is reflective of most projects a developer will encounter. I'm personally not a coffee drinker though I know many who are, and while watching a few people congregate around a coffee maker the idea popped in my head to make a coffee website.
@@ -22,3 +18,9 @@ I sketched out the initial layout and also ended up simultaneously designing the
 ### Outcome
 
 The website has all the pages of a typical food/beverage restaurant with a cart that has functionality. Due to some of the challenges of this website, I understand where I can do tighter planning in the future in terms of layout (This can be demonstrated my portfolio).
+
+## Built with 
+
+    - html 
+    - css
+    - javascript
