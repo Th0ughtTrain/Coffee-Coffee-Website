@@ -1,6 +1,6 @@
 
 
-@import 'module';
+@import '..\\module';
 
 *{
   margin: 0;
@@ -12,7 +12,7 @@ body{
   
   
   width: 100%; 
-  background-image: url("Images\\pexels-fwstudio-129731.jpg");
+  background-image: url("..\\Images\\pexels-fwstudio-129731.jpg");
 
     
   .wrapper{
@@ -62,31 +62,101 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 30px auto 100px auto ;
+  margin: 100px auto 100px auto ;
   border-radius: 10px;
   // box-shadow: 0px 0px 10px 0px black;
-    
-    .about-container{
+
+  @media (max-width: 1200px) {
+
+    height: 188.5px;
+    width: 365px;
+
+  }
+
+  @media (max-width: 1200px) {
+
+    margin: 350px auto 400px auto;
+
+  }
+  
+  
+ .about-container{
 
         @include wrapper-style;
         display: flex;
         width: 1360px;
         height: 654px;   
 
+        @media (max-width: 1200px) {
+
+          
+          width: 680px;
+          height: 327px;
+
+        }
+
+        @media (max-width: 580px) {
+
+          width: 340px;
+          height: 800px;
+          flex-direction: column;
+          
+
+        }
+
         .about-img{
+
             width: 50%;
             height: 100%;
+
+            @media (max-width: 1200px) {
+
+
+            }
+
+            @media (max-width: 580px) {
+              
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+
+              width: 100%;
+
+            }
             
           .img-container{
-            // background-color: purple;
-            // width: 759px;
-            // height: 506px;
+
             margin: 20px 50px;
+
+            @media (max-width: 1200px) {
+
+              margin: 10px 10px;
+
+            }
+
+            @media (max-width: 580px) {
+              
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+
+            }
             
             img {
               border-radius: 10px;
-              margin: 10px 40px auto;
+              margin: 10px 10px auto;
+              width: 440px;
+
+              @media (max-width: 1200px) {
+
+                width: 210px;
+
+              }
+
             }
+
           }
             
         }
@@ -95,12 +165,26 @@ body{
         .about-description{
           width: 50%;
           height: 100%;
-          margin: 10px;
+          margin: 15px;
+
+          @media (max-width: 1200px) {
+            
+            
+           
+          }
 
           p {
               margin: 30px 10px;
               width: 636px;
               font-size: 2em;
+
+              @media (max-width: 1200px) {
+                
+                margin: 10px auto;
+                width: 300px;
+                font-size: 1em;
+
+              }
           }
 
         }

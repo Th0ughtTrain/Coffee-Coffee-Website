@@ -165,6 +165,7 @@ function addItemToCart(title,price,imageSrc,place) {
    
     var cartRowItemImg = document.createElement('img')
     cartRowItemImg.classList.add(`cart-item-image`)
+    cartRowItemImg.src = imageSrc
     cartRowItemImg.style.width = `36px`
     cartRowItemImg.style.height = '27px';
     

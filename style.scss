@@ -4,9 +4,11 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto' ;
-    
+    font-family: 'Roboto' 
+
+
 }
+
 
 body{
     background-image: url("Images\\pexels-fwstudio-129731.jpg")
@@ -15,31 +17,35 @@ body{
 @include nav-bar;
 
 
+
 .content{
     // @include background-base; 
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin: 0 55vh;
     // height:1200px;
-    width: 1200px;
+    // width: 1200px;
     margin: 5px auto;
     border-radius: 10px;
     // box-shadow: 0 0 10px 0;
     
     #promotion{
-        display: inline-block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         position: relative;
-        width: 100%;
-        height: 589.2px;
+        // width: 1200px;
+        // height: 589.2px;
         border-radius: 10px;
-        margin: 10px auto;
+        margin: 10px auto; 
 
+        
         h1 { 
             position: absolute;
             color: beige;
-            font-size: 2.5em;
             top: 40px;
-            left: 100px;
+            left: 50px;
             border-radius: 100%;
             color:white;
             text-transform:uppercase;
@@ -49,21 +55,52 @@ body{
             font-size: 4.5em;
             text-decoration: none;
             border: 2px solid white;
+
+            @media (max-width: 800px) {
+                font-size: 2em;
+                padding: .4em 1em;
+                width: 100px;
+                height: 150px;
+            
+            }
+
+            @media (max-width: 530px) {
+                font-size: 2em;
+                padding: .4em 1em;
+                width: 45px;
+                height: 75px;
+            
+            }
+
         }
         
         img {
             border: 10px solid #888870;
-            margin-left: 6.5%;
-            width: 85%;
+            margin-left: 1%;
+            width: 1020px;
             height: 100%;
             border-radius: 10px;
             box-shadow: 0 0 10px 0;
+
+            @media (max-width: 800px) {
+                width: 510px;
+                height: 346px;
+                margin-left: 0%
+            }
+
+            @media (max-width: 530px) {
+
+                width: 425px;
+                height: 288.3px;
+                margin-left: 0%
+
+            }
         }
 
         a {
             position: absolute;
             top: 66%;
-            right:18em;
+            right: 14em;
             background-color: #712f1e9f;
             border-radius:1.5em;
             color:white;
@@ -74,6 +111,14 @@ body{
             font-size: 1.5em;
             text-decoration: none;
             border: 2px solid white;
+
+            @media (max-width: 800px) {
+                position: absolute;
+                right: 30%;
+                padding: 1em 2.5em;
+                height: 10px;
+                font-size: .8em;
+            }
         }
 
         a:hover {
@@ -82,20 +127,40 @@ body{
 
         a:active {
             font-size: 1em;
-            right: 28.5em;
+            right: 22em;
             height: 30px;
             width: 194px;
+
+            @media (max-width: 800px) {
+
+                font-size: .6em;
+                right: 33.5%;
+                height: 5px;
+                width: 90px;
+            
+
+            }
         }
     }
 
 
     #about {
         background-color: #888870;;
-        width: 90%;
+        width: 1092px ;
         margin: 30px auto 10px auto;
         height: 90px;
         border-radius: 10px;
         box-shadow: 0 0 10px 0;
+
+        @media (max-width: 800px) {
+            width: 500px;
+            height: 60px;
+        }
+
+        @media (max-width: 530px) {
+            width: 400px;
+            height: 80px;
+        }
        
         #to-about {
                 font-size: 3em;
@@ -105,6 +170,16 @@ body{
                 color: white;
                 border: none;                
                 text-align: center;
+
+                @media (max-width: 800px) {
+                    font-size: 2em;
+                    margin: auto 5px;
+                }
+
+                @media (max-width: 530px) {
+                    font-size: 1.6em;
+                    margin: auto 5px;
+                }
             }
     }
 
@@ -113,8 +188,19 @@ body{
     }
 
     #about:active {
-        width: 85%;
-        height: 80px;
+        width: 1072px;
+        height: 70px;
+        margin-bottom: 30px;
+
+        @media (max-width: 800px) {
+             width: 480px;
+             margin-bottom: 20px;
+        }
+
+        @media (max-width: 530px) {
+            width: 380px;
+            margin-bottom: 20px;
+       }
     }
 
     #menu {
@@ -124,7 +210,8 @@ body{
         align-items: center;
         justify-content: center;
         border-radius: 10px;
-        
+    
+
         #menuitem{
             border: 10px solid #888870;
             display: flex;
@@ -137,8 +224,21 @@ body{
             border-radius: 10px;
             box-shadow: 0 0 10px 0;
 
+            @media (max-width: 800px) {
+                flex-direction: column-reverse;
+                width: 90%;
+            }
+
+            @media (max-width: 530px) {
+                width: 70%;
+            }
+
             .menuitem-desc{
-            width: 60%;
+                width: 60%;
+
+                @media (max-width: 800px) {
+                    width: 20%;
+                }
 
                 .purchase{
 
@@ -155,9 +255,17 @@ body{
                     border: none;
                     transition: .1s;
 
+                    @media (max-width: 800px) {
+                        font-size: 1em;
+                    }
+
                     a {
                         text-decoration: none;
                         color: white;
+
+                        @media (max-width: 800px) {
+            
+                        }
                     }
                     
                     
@@ -166,11 +274,19 @@ body{
                 .purchase:hover {
                     background: #baba8d;
 
+                    @media (max-width: 800px) {
+            
+                    }
+
                 }
 
                 .purchase:active {
                     width: 145px;
                     height: 45px;
+
+                    @media (max-width: 800px) {
+            
+                    }
                 }
             }
 
@@ -183,14 +299,38 @@ body{
 
                 h1 {
                     font-size: 2.5em;
-                    margin: 20px;
+                    margin: 2px;
+
+                    @media (max-width: 800px) {
+                        font-size: 1.5em;
+                    }
+
+                    @media (max-width: 800px) {
+                        font-size: 1em;
+                    }
                 }
             }
 
             .menuitem-img{
+
                 display: flex;
                 align-items: center;
                 justify-content: center;
+
+                img {
+                    width: 650px;
+                }
+                @media (max-width: 800px) {
+                    img {
+                       width: 500px; 
+                    }
+                }
+
+                @media (max-width: 530px) {
+                    img {
+                       width: 420px; 
+                    }
+                }
             }
 
         }
@@ -206,9 +346,47 @@ body{
             overflow: hidden;
             border-radius: 10px;
             box-shadow: 0 0 10px 0;
+
+            @media (max-width: 800px) {
+                display: flex;
+                flex-direction: column;
+            }
+
+            @media (max-width: 530px) {
+                width: 70%;
+            }
+
+
             
             .whole-menu-img{
                 width: 50%;
+
+                img {
+                    width: 900px;
+                }
+
+                @media (max-width: 800px) {
+
+                    width: 100%;
+
+                    img {
+
+                        width: 475px;
+                        
+                    }
+
+                }
+
+                @media (max-width: 530px) {
+
+                    width: 90%;
+
+                    img {
+
+                        width: 415px;
+                    }
+
+                }
             }
 
             .whole-menu-link{
@@ -219,9 +397,29 @@ body{
                 width: 50%;
                 background-color: whitesmoke;
 
+                @media (max-width: 800px) {
+                    width: 100%;
+                    height: 50%;
+
+                    
+                }
+
+                @media (max-width: 530px) {
+                    h1 {
+                        font-size: 1.5em;
+                    }
+                }
+                
+                    
+                
+
                 h2 {
                     text-align: center;
                     margin: 10px;
+
+                    @media (max-width: 800px) {
+                        font-size: 1em;
+                    }
                 }
 
                 .to-menu {
@@ -237,6 +435,10 @@ body{
                     color: white;
                     border: none;
                     transition: .1s;
+
+                    @media (max-width: 800px) {
+
+                    }
                     
                     a {
                                         

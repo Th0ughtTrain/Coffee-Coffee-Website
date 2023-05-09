@@ -31,23 +31,37 @@ body{
             align-items: center;
             justify-content: center;
             margin: 30px auto 100px auto ;
+
+            @media (max-width: 1000px) {
+              width: 540px;
+              height: 264px;
+            }
             
             
             .promotion-container{
                 display: flex;
                 width: 1080px;
-                height: 100%;
+                height: 527px;
                 background-color: whitesmoke;
                 border-radius: 10px;       
+
+                @media (max-width: 1000px) {
+                  width: 540px;
+                  height: 264px             
+                }
         
                 .promotion-img{
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    width: 60%;
+                    width: 636px;
                     height: 100%;;
                     overflow: hidden;
                     // background-color: cyan;
+
+                    @media (max-width: 1000px) {
+                      width: 318px;
+                    }
                     
                     .img-container{
                         // background-color: purple;
@@ -55,8 +69,24 @@ body{
                         // height: 506px;
                     
                         img {
+                        
+                        height: 636px;
                         border-radius: 10px;
                         margin: 10px 40px auto;
+
+                        @media (max-width: 1000px) {
+                          height: 363px;
+                        }
+                        
+                        }
+
+                        .barista-img {
+                          height: 810px;
+
+                          @media (max-width: 1000px) {
+                            height: 400px;
+
+                          }
                         }
                     } 
                 }
@@ -70,10 +100,16 @@ body{
                     height: 100%;
                     margin: 10px;
                     text-align: center;
+
+                    
         
                     p {
-                        margin: 10px;
-                        font-size: 1.5em;
+                      margin: 10px;
+                      font-size: 1.5em;
+
+                      @media (max-width: 1000px) {
+                        font-size: .8em;
+                      }
                     }
         
                 }
@@ -113,3 +149,6 @@ body{
 }
 
 @include footer;
+
+
+
