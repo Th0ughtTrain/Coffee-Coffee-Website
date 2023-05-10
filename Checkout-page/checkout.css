@@ -286,11 +286,6 @@
     width: 300px;
   }
 }
-@media (max-width: 1000px) {
-  * .checkout-wrapper .checkout-container {
-    width: 200px;
-  }
-}
 * .checkout-wrapper .text-field {
   height: 30px;
   width: 400px;
@@ -340,6 +335,9 @@
     width: 40px;
     bottom: -10px;
   }
+}
+* .checkout-wrapper .payment-info .card-security {
+  width: 150px;
 }
 * .checkout-wrapper .payment-info .checkout-btn-purchase {
   position: relative;

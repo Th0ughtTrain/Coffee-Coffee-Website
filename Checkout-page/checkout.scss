@@ -89,11 +89,11 @@
   
         }
 
-        @media (max-width: 1000px) {
+        // @media (max-width: 530px) {
 
-          width: 200px;
+        //   width: 200px;
   
-        }
+        // }
 
         // @media (max-width: 530px) {
 
@@ -163,6 +163,10 @@
             width: 40px;
             bottom: -10px;
           }
+        }
+
+        .card-security {
+          width: 150px;
         }
 
         .checkout-btn-purchase {
