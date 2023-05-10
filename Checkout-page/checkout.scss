@@ -2,13 +2,11 @@
 
 
     
-    *{
-      margin: 0;
-      padding: 0;
+*{
 
-
-
-
+  margin: 0;  
+  padding: 0;
+  
   body {
     font-family: 'Roboto';
     height: 950px;
@@ -68,28 +66,66 @@
       border: 10px solid #888870;
       margin: 40px auto;
 
+      
       @media (max-width: 1000px) {
 
         width: 500px;
 
       }
+      
+      @media (max-width: 530px) {
 
+        width: 300px;
+
+      }
 
       .checkout-container {
         width: 700px;
-        margin: 50px 40px;
+        margin: 50px 20px;
+
+        @media (max-width: 1000px) {
+
+          width: 300px;
+  
+        }
+
+        @media (max-width: 1000px) {
+
+          width: 200px;
+  
+        }
+
+        // @media (max-width: 530px) {
+
+        //   width: 100px;
+  
+        // }
+
       }
 
       .text-field {
         height: 30px;
         width: 400px;
         display: block;
+
+        @media (max-width: 530px) {
+
+          width: 250px;
+  
+        }
+
       }
 
       .text-field-optional {
         height: 30px;
         width: 400px;
         display: block;
+
+        @media (max-width: 530px) {
+
+          width: 250px;
+  
+        }
       }
 
       .purchase-recap {
@@ -122,6 +158,11 @@
         .expiration {
           width: 50px;
           text-align: center;
+
+          @media (max-width: 530px) {
+            width: 40px;
+            bottom: -10px;
+          }
         }
 
         .checkout-btn-purchase {
@@ -135,6 +176,10 @@
           border-radius: 10px;
           bottom: 100px;
           text-align: center;
+
+          @media (max-width: 530px) {
+            bottom: 0px;
+          }
 
         }
 
@@ -162,6 +207,12 @@
             bottom: 20px;
             left: 100px;
 
+          }
+
+          @media (max-width: 530px) {
+            width: 75px;
+            bottom: 55px;
+            left: 80px;
           }
 
         }

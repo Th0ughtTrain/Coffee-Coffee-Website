@@ -86,8 +86,8 @@ function removeCartItem(e) {
     var buttonClicked = e.target
     var sharedClassName = document.getElementsByClassName(buttonClicked.parentElement.parentElement.classList[1])
     let storageNumber = buttonClicked.parentElement.parentElement.firstChild.value
-    console.log(storageNumber)
-    console.log(sharedClassName)
+    // console.log(storageNumber)
+    // console.log(sharedClassName)
     localStorage.removeItem(storageNumber)
 
     for ( let i = 0; i < sharedClassName.length; i++  ) {
@@ -112,7 +112,7 @@ function removeCartItem(e) {
 function displayCartCount() {
     let count = document.getElementsByClassName('cart-count')[0]
     let number = count.childNodes[1]
-    console.log(number)
+    // console.log(number)
     if (localStorage.length === 0) {
 
         count.style.display = `none`;
@@ -184,10 +184,10 @@ function cartCheckout() {
         var priceElement = document.getElementsByClassName('cart-price')[i].textContent;
         var quantityElement = document.getElementsByClassName('cart-quantity-input')[i].value;
         let checkoutOBJ = {title: title, price: priceElement, quantity: quantityElement,};
-        console.log(checkoutOBJ);
+        // console.log(checkoutOBJ);
         checkoutStore = JSON.stringify(checkoutOBJ)
         sessionStorage.setItem(`checkout${i}`, checkoutStore)
-        console.log(sessionStorage)
+        // console.log(sessionStorage)
     }
 
     var total = document.getElementsByClassName(`cart-total-price`)[0].textContent
@@ -222,7 +222,7 @@ function addItemToCart(title,price,imageSrc,place) {
    
     var cartRowItemImg = document.createElement('img')
     cartRowItemImg.classList.add(`cart-item-image`)
-    console.log(cartRowItemImg.src = imageSrc) 
+    // console.log(cartRowItemImg.src = imageSrc) 
     cartRowItemImg.style.width = `36px`
     cartRowItemImg.style.height = '27px';
     
@@ -318,7 +318,7 @@ function persistCart() {
             const key = localStorage.key(i);
             const value = localStorage.getItem(key);
             extractedData = JSON.parse(value);
-            console.log(extractedData);
+            // console.log(extractedData);
             title = extractedData[0]
             price = extractedData[1]
             image = extractedData[2]
